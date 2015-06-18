@@ -1,4 +1,4 @@
-#N canvas 405 349 450 300 10;
+#N canvas 403 352 450 300 10;
 #X obj -99 -808 sendOSC;
 #X floatatom -99 -779 5 0 0 0 - - -;
 #X msg -201 -878 disconnect;
@@ -13,6 +13,7 @@
 #X text -31 -901 default: on;
 #X obj -115 -929 r osc;
 #X msg -213 -921 send /panic/;
+#X msg 36 -937 connect localhost 12345;
 #X connect 0 0 1 0;
 #X connect 0 1 7 0;
 #X connect 2 0 0 0;
@@ -22,3 +23,4 @@
 #X connect 6 0 0 0;
 #X connect 12 0 0 0;
 #X connect 13 0 0 0;
+#X connect 14 0 0 0;

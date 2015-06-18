@@ -1,24 +1,24 @@
-#N canvas 227 322 745 520 10;
+#N canvas 258 58 745 520 10;
 #X msg 343 207 send /active/cam;
 #X msg 344 62 send /active/cam/show;
 #X obj 1 1 cnv 15 200 230 empty empty active_quad_camera 10 12 0 16
 -1 -262144 0;
 #X obj 101 34 tgl 15 0 1 empty greenscreen 17 7 0 10 -191407 -262144
--262144 1 1;
+-262144 0 1;
 #X obj 15 35 tgl 15 0 empty empty cam_on/off 17 7 0 10 -191407 -262144
--262144 1 1;
+-262144 0 1;
 #X obj 343 239 s osc;
-#X obj 347 115 s osc;
+#X obj 347 90 s osc;
 #X obj 254 189 float;
 #X msg 370 275 color \$1 \$2 \$3;
 #X obj 12 70 hsl 128 15 0 1 0 0 empty empty red 5 8 0 10 -258113 -1
--262144 12700 1;
+-262144 0 1;
 #X obj 12 85 hsl 128 15 0 1 0 0 empty empty green 5 8 0 10 -4034 -1
--262144 12700 1;
+-262144 0 1;
 #X obj 12 101 hsl 128 15 0 1 0 0 empty empty blue 5 8 0 10 -4160 -33289
--262144 12700 1;
+-262144 0 1;
 #X obj 12 117 hsl 128 15 0 1 0 0 empty empty alpha 5 8 0 10 -162280
--1 -262144 12700 1;
+-1 -262144 0 1;
 #X msg 299 414 send /active/cam/color \$1 \$2 \$3 \$4;
 #X obj 245 476 s osc;
 #X obj 268 210 float;
@@ -43,6 +43,10 @@
 #X msg 81 393 send /active/cam/mult/y \$1;
 #X msg 347 9 send /active/cam/hmirror \$1;
 #X msg 346 32 send /active/cam/vmirror \$1;
+#X obj 157 58 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 281 118 send /active/sampler \$1;
+#X obj 235 29 r t_sampler;
 #X connect 0 0 5 0;
 #X connect 3 0 20 0;
 #X connect 4 0 0 0;
@@ -75,4 +79,7 @@
 #X connect 30 0 14 0;
 #X connect 31 0 6 0;
 #X connect 32 0 6 0;
+#X connect 33 0 34 0;
+#X connect 34 0 5 0;
+#X connect 35 0 33 0;
 #X coords 0 -1 1 1 200 230 2 1 1;

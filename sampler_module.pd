@@ -1,0 +1,149 @@
+#N canvas 21 73 951 540 10;
+#X obj 100 101 cnv 15 240 100 empty empty sampler 20 12 0 14 -1 -262144
+0;
+#X obj 192 107 tgl 15 0 empty ctl_rec0 empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 192 126 tgl 15 0 empty ctl_play0 empty 17 7 0 10 -262144 -1
+-1 1 1;
+#X obj 192 147 tgl 15 0 empty ctl_pause0 empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 192 167 tgl 15 0 empty ctl_clear0 empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 22 59 tgl 15 0 empty empty empty 17 7 0 10 -258113 -1 -1 0 1
+;
+#X obj 43 59 tgl 15 0 empty empty empty 17 7 0 10 -258113 -1 -1 0 1
+;
+#X obj 22 78 tgl 15 0 empty empty empty 17 7 0 10 -258113 -1 -1 0 1
+;
+#X obj 43 78 tgl 15 0 empty empty empty 17 7 0 10 -258113 -1 -1 0 1
+;
+#X obj 118 163 tgl 15 0 empty ctl_play00 empty 17 7 0 10 -4034 -1 -1
+1 1;
+#X obj 139 163 tgl 15 0 empty ctl_play01 empty 17 7 0 10 -4034 -1 -1
+0 1;
+#X obj 118 182 tgl 15 0 empty ctl_play12 empty 17 7 0 10 -4034 -1 -1
+0 1;
+#X obj 139 182 tgl 15 0 empty ctl_play13 empty 17 7 0 10 -4034 -1 -1
+1 1;
+#X obj 20 -66 r sampler_record_num;
+#X obj 15 -33 route 0 1 2 3;
+#X obj 109 142 hradio 15 1 0 4 rec_number0 r_sampler_0_record_num rec_num
+0 -8 0 10 -258113 -1 -262144 3;
+#X obj 118 382 s osc;
+#X obj 194 26 s osc;
+#X obj 280 163 tgl 15 0 empty ctl_play10 empty 17 7 0 10 -4034 -1 -1
+1 1;
+#X obj 301 163 tgl 15 0 empty ctl_play11 empty 17 7 0 10 -4034 -1 -1
+1 1;
+#X obj 280 182 tgl 15 0 empty ctl_play12 empty 17 7 0 10 -4034 -1 -1
+0 1;
+#X obj 301 182 tgl 15 0 empty ctl-play13 empty 17 7 0 10 -4034 -1 -1
+0 1;
+#X obj 271 142 hradio 15 1 0 4 rec_number1 r_sampler_1_record_num rec_num
+0 -8 0 10 -258113 -1 -262144 1;
+#X obj 400 382 s osc;
+#X msg 16 264 send /sharedsampler/0/record/\$1;
+#X msg 118 295 send /sharedsampler/0/playbuffer/0 \$1;
+#X msg 128 315 send /sharedsampler/0/playbuffer/1 \$1;
+#X msg 138 335 send /sharedsampler/0/playbuffer/2 \$1;
+#X msg 148 355 send /sharedsampler/0/playbuffer/3 \$1;
+#X msg 388 264 send /sharedsampler/1/record/\$1;
+#X msg 380 295 send /sharedsampler/1/playbuffer/0 \$1;
+#X msg 390 315 send /sharedsampler/1/playbuffer/1 \$1;
+#X msg 400 335 send /sharedsampler/1/playbuffer/2 \$1;
+#X msg 410 355 send /sharedsampler/1/playbuffer/3 \$1;
+#X obj 242 107 tgl 15 0 empty ctl_rec1 empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 242 126 tgl 15 0 empty ctl_play1 empty 17 7 0 10 -262144 -1
+-1 1 1;
+#X obj 242 147 tgl 15 0 empty ctl_pause1 empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 242 167 tgl 15 0 empty ctl_clear1 empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 464 26 s osc;
+#X msg 195 -91 send /sharedsampler/0/clear \$1;
+#X msg 195 -71 send /sharedsampler/0/pause \$1;
+#X msg 195 -51 send /sharedsampler/0/play \$1;
+#X msg 463 -71 send /sharedsampler/1/pause \$1;
+#X msg 463 -91 send /sharedsampler/1/clear \$1;
+#X msg 463 -51 send /sharedsampler/1/play \$1;
+#X obj -15 118 r ctl_recnumber0;
+#X obj 384 96 r ctl_recnumber1;
+#X obj 153 -215 gate 4;
+#X msg 184 -191 send /sharedsampler/0/record/3 \$1;
+#X obj 153 -240 + 1;
+#X obj 16 239 t i i;
+#X msg 175 -167 send /sharedsampler/0/record/2 \$1;
+#X msg 164 -141 send /sharedsampler/0/record/1 \$1;
+#X msg 153 -118 send /sharedsampler/0/record/0 \$1;
+#X obj 385 238 t i i;
+#X obj 425 -215 gate 4;
+#X obj 425 -240 + 1;
+#X msg 456 -191 send /sharedsampler/1/record/3 \$1;
+#X msg 447 -167 send /sharedsampler/1/record/2 \$1;
+#X msg 436 -141 send /sharedsampler/1/record/1 \$1;
+#X msg 425 -118 send /sharedsampler/1/record/0 \$1;
+#X connect 1 0 47 1;
+#X connect 2 0 41 0;
+#X connect 3 0 40 0;
+#X connect 4 0 39 0;
+#X connect 9 0 25 0;
+#X connect 10 0 26 0;
+#X connect 11 0 27 0;
+#X connect 12 0 28 0;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 14 1 6 0;
+#X connect 14 2 7 0;
+#X connect 14 3 8 0;
+#X connect 15 0 50 0;
+#X connect 18 0 30 0;
+#X connect 19 0 31 0;
+#X connect 20 0 32 0;
+#X connect 21 0 33 0;
+#X connect 22 0 54 0;
+#X connect 24 0 16 0;
+#X connect 25 0 16 0;
+#X connect 26 0 16 0;
+#X connect 27 0 16 0;
+#X connect 28 0 16 0;
+#X connect 29 0 23 0;
+#X connect 30 0 23 0;
+#X connect 31 0 23 0;
+#X connect 32 0 23 0;
+#X connect 33 0 23 0;
+#X connect 34 0 55 1;
+#X connect 35 0 44 0;
+#X connect 36 0 42 0;
+#X connect 37 0 43 0;
+#X connect 39 0 17 0;
+#X connect 40 0 17 0;
+#X connect 41 0 17 0;
+#X connect 42 0 38 0;
+#X connect 43 0 38 0;
+#X connect 44 0 38 0;
+#X connect 45 0 15 0;
+#X connect 46 0 22 0;
+#X connect 47 0 53 0;
+#X connect 47 1 52 0;
+#X connect 47 2 51 0;
+#X connect 47 3 48 0;
+#X connect 48 0 17 0;
+#X connect 49 0 47 0;
+#X connect 50 0 24 0;
+#X connect 50 1 49 0;
+#X connect 51 0 17 0;
+#X connect 52 0 17 0;
+#X connect 53 0 17 0;
+#X connect 54 0 29 0;
+#X connect 54 1 56 0;
+#X connect 55 0 60 0;
+#X connect 55 1 59 0;
+#X connect 55 2 58 0;
+#X connect 55 3 57 0;
+#X connect 56 0 55 0;
+#X connect 57 0 38 0;
+#X connect 58 0 38 0;
+#X connect 59 0 38 0;
+#X connect 60 0 38 0;
+#X coords 0 -1 1 1 240 100 1 100 100;
